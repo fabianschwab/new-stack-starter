@@ -9,8 +9,6 @@ import { availableThemes } from '$lib';
 const setThemeFromCookie: Handle = async ({ event, resolve }) => {
 	const themeFromCookie = event.cookies.get('theme');
 
-	console.log(themeFromCookie);
-
 	if (!themeFromCookie || !availableThemes.includes(themeFromCookie)) {
 		return await resolve(event);
 	}
