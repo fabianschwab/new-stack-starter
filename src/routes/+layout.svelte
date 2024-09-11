@@ -1,7 +1,8 @@
 <script>
 	import 'tailwindcss/tailwind.css';
-	import { ApplicationBranding, LightDarkSystemButtons } from '$lib';
+	import { ApplicationBranding, LightDarkSystemButtons, Notifications } from '$lib';
 	import MaterialSymbolsLightMenuRounded from '~icons/material-symbols-light/menu-rounded';
+	import MaterialSymbolsLightNotificationsUnreadOutlineRounded from '~icons/material-symbols-light/notifications-unread-outline-rounded';
 </script>
 
 <!-- Main Layout -->
@@ -24,7 +25,7 @@
 				<!-- TODO login / logout component -->
 			</div>
 		</div>
-		<div class="mx-3">
+		<div class="mx-3 mb-3">
 			<slot />
 		</div>
 	</div>
@@ -32,11 +33,15 @@
 	<div class="drawer-side">
 		<label for="main-nav-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
 		<ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-			<div class="max-lg:hidden">
+			<div class="max-lg:hidden mb-4">
 				<ApplicationBranding />
 			</div>
-			<li><a href="/">Sidebar Item 1</a></li>
-			<li><a href="/">Sidebar Item 2</a></li>
+			<li>
+				<a href="/how-to/notifications"
+					><MaterialSymbolsLightNotificationsUnreadOutlineRounded />Notification System</a
+				>
+			</li>
+			<li><a href="/"><s>Sidebar Item 2</s></a></li>
 			<!-- TODO sidebar component -->
 			<div class="flex justify-center grow items-end">
 				<LightDarkSystemButtons />
@@ -44,3 +49,4 @@
 		</ul>
 	</div>
 </div>
+<Notifications />
