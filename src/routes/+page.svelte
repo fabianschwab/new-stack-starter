@@ -32,15 +32,19 @@
 	</p>
 	<h3>Notifications <span class="text-xs font-bold">(upcoming)</span></h3>
 	<p>The notification system with can be triggered over a function.</p>
-	<button
-		class="btn btn-neutral"
-		on:click={() =>
-			addNotification({
-				type: NotificationType.Info,
-				title: 'New Notification!',
-				caption: new Date().toLocaleTimeString('DE-de')
-			})}>Create Notification</button
-	>
-	<button class="btn btn-outline" on:click={() => clearNotifications()}>Clear Notifications</button>
+	<div class="flex gap-4">
+		<button
+			class="btn btn-neutral"
+			on:click={() =>
+				addNotification({
+					type: NotificationType.Info,
+					title: 'New Notification!',
+					caption: new Date().toLocaleTimeString('DE-de')
+				})}>Create Notification</button
+		>
+		<button class="btn btn-outline" on:click={() => clearNotifications()}
+			>Clear Notifications</button
+		>
+	</div>
 	<p>For detailed information see <a href="/how-to/notifications">notifications</a> page.</p>
 </article>
