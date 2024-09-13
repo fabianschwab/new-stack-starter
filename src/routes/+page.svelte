@@ -1,3 +1,7 @@
+<script>
+	import { addNotification, clearNotifications, NotificationType } from '$lib/client/Notifications';
+</script>
+
 <article class="prose max-w-3xl m-auto">
 	<h1>Welcome to SvelteKit Starter 2.0</h1>
 	<p>I built a web app starter based on my favorite tech stack, which includes:</p>
@@ -28,6 +32,19 @@
 	</p>
 	<h3>Notifications <span class="text-xs font-bold">(upcoming)</span></h3>
 	<p>The notification system with can be triggered over a function.</p>
-	<button class="btn btn-neutral btn-disabled">Create Notification</button>
-	<p>For detailed information see <a href="/notifications">notifications</a> page.</p>
+	<div class="flex gap-4">
+		<button
+			class="btn btn-neutral"
+			on:click={() =>
+				addNotification({
+					type: NotificationType.Info,
+					title: 'New Notification!',
+					caption: new Date().toLocaleTimeString('DE-de')
+				})}>Create Notification</button
+		>
+		<button class="btn btn-outline" on:click={() => clearNotifications()}
+			>Clear Notifications</button
+		>
+	</div>
+	<p>For detailed information see <a href="/how-to/notifications">notifications</a> page.</p>
 </article>

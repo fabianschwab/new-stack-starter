@@ -3,6 +3,7 @@ import { persisted } from 'svelte-persisted-store';
 
 import LightDarkSystemButtons from './components/theme-controller/LightDarkSystemButtons.svelte';
 import ApplicationBranding from './components/branding/ApplicationBranding.svelte';
+import Notifications from './components/notifications/Notifications.svelte';
 
 /**
  * Available themes for the page.
@@ -15,4 +16,4 @@ const preferences = persisted('preferences', {
 	theme: ''
 });
 
-export { availableThemes, preferences, LightDarkSystemButtons, ApplicationBranding };
+export { availableThemes, preferences, LightDarkSystemButtons, ApplicationBranding, Notifications };
