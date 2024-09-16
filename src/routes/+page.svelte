@@ -47,4 +47,11 @@
 		>
 	</div>
 	<p>For detailed information see <a href="/how-to/notifications">notifications</a> page.</p>
+	<h3>Handling Data</h3>
+	<p>
+		In SvelteKit you should avoid using fetch to load data. Use the <code>load</code> function in
+		the <code>+page.server.ts</code> file.<br />
+		Also for creating data use form <code>actions</code>. For more details and a simple example see
+		the <a href="/how-to/handle-data">handle data</a> page.
+	</p>
 </article>
