@@ -2,9 +2,10 @@
 	import type { PageData } from './$types';
 	import MaterialSymbolsLightEditOutlineRounded from '~icons/material-symbols-light/edit-outline-rounded';
 	import MaterialSymbolsLightDeleteOutlineRounded from '~icons/material-symbols-light/delete-outline-rounded';
-	import MaterialSymbolsLightPostAddRounded from '~icons/material-symbols-light/post-add-rounded';
+	import { superForm } from 'sveltekit-superforms';
 
 	export let data: PageData;
+	const { form, errors, message, enhance } = superForm(data.createKudoForm);
 </script>
 
 <article class="prose max-w-3xl m-auto">
@@ -52,11 +53,66 @@
 		{data.kudos.length}
 		{data.kudos.length === 1 ? 'Kudo' : 'Kudos'} stored in the database.
 	</p>
-	<button class="btn btn-primary"><MaterialSymbolsLightPostAddRounded /> Add new Kudo</button>
+	<form method="POST" action="?/createKudo" class="max-w-md" use:enhance>
+		<label class="form-control">
+			<div class="label">
+				<span class="label-text">From</span>
+			</div>
+			<input
+				bind:value={$form.from}
+				type="text"
+				name="from"
+				placeholder="Your name"
+				class="input input-bordered"
+			/>
+			{#if $errors.from}
+				<div class="label">
+					<span class="label-text-alt text-error">{$errors.from}</span>
+				</div>
+			{/if}
+		</label>
+		<label class="form-control">
+			<div class="label">
+				<span class="label-text">To</span>
+			</div>
+			<input
+				bind:value={$form.to}
+				type="text"
+				name="to"
+				placeholder="For whom"
+				class="input input-bordered"
+			/>
+			{#if $errors.to}
+				<div class="label">
+					<span class="label-text-alt text-error">{$errors.to}</span>
+				</div>
+			{/if}
+		</label>
+		<label class="form-control">
+			<div class="label">
+				<span class="label-text">Message</span>
+			</div>
+			<textarea
+				bind:value={$form.message}
+				name="message"
+				placeholder="Your message ..."
+				class="textarea textarea-bordered"
+			/>
+			{#if $errors.message}
+				<div class="label">
+					<span class="label-text-alt text-error">{$errors.message}</span>
+				</div>
+			{/if}
+		</label>
+		<div class="mt-4 flex gap-4">
+			<button class="btn btn-primary" type="submit">Add new Kudo</button>
+			<button class="btn btn-secondary" type="reset">Reset form</button>
+		</div>
+	</form>
 </article>
-<div class="mt-4 max-w-3xl m-auto">
+<div class="wrapper">
 	{#each data.kudos as kudo}
-		<div class="card bg-base-200 w-96 shadow-md">
+		<div class="card bg-base-200 shadow-md">
 			<div class="card-body">
 				<div class="flex justify-between">
 					<div class="card-title text-primary">{kudo.to}</div>
@@ -87,3 +143,11 @@
 		</div>
 	{/each}
 </div>
+
+<style>
+	.wrapper {
+		@apply mt-8 gap-4;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	}
+</style>
