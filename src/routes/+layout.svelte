@@ -3,6 +3,7 @@
 	import { ApplicationBranding, LightDarkSystemButtons, Notifications } from '$lib';
 	import MaterialSymbolsLightMenuRounded from '~icons/material-symbols-light/menu-rounded';
 	import MaterialSymbolsLightNotificationsUnreadOutlineRounded from '~icons/material-symbols-light/notifications-unread-outline-rounded';
+	import MaterialSymbolsLightDataTableOutlineRounded from '~icons/material-symbols-light/data-table-outline-rounded';
 </script>
 
 <!-- Main Layout -->
@@ -34,14 +35,16 @@
 		<label for="main-nav-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
 		<ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
 			<div class="max-lg:hidden mb-4">
-				<ApplicationBranding />
+				<ApplicationBranding class="text-primary" />
 			</div>
 			<li>
 				<a href="/how-to/notifications"
 					><MaterialSymbolsLightNotificationsUnreadOutlineRounded />Notification System</a
 				>
 			</li>
-			<li><a href="/"><s>Sidebar Item 2</s></a></li>
+			<li>
+				<a href="/how-to/handle-data"><MaterialSymbolsLightDataTableOutlineRounded />Handle Data</a>
+			</li>
 			<!-- TODO sidebar component -->
 			<div class="flex justify-center grow items-end">
 				<LightDarkSystemButtons />

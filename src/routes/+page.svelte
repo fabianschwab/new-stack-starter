@@ -10,8 +10,8 @@
 		<li>SvelteKit</li>
 		<li>TailwindCSS</li>
 		<li>DaisyUI</li>
-		<li>Superforms <span class="text-xs font-bold">(upcoming)</span></li>
-		<li>Zod Form Validation <span class="text-xs font-bold">(upcoming)</span></li>
+		<li>Superforms</li>
+		<li>Zod Form Validation</li>
 		<li>Drizzle ORM <span class="text-xs font-bold">(upcoming)</span></li>
 		<li>Lucia Auth <span class="text-xs font-bold">(upcoming)</span></li>
 	</ul>
@@ -30,7 +30,7 @@
 		This starter also provides a set of common features so they don't have to be implemented each
 		time.
 	</p>
-	<h3>Notifications <span class="text-xs font-bold">(upcoming)</span></h3>
+	<h3>Notifications</h3>
 	<p>The notification system with can be triggered over a function.</p>
 	<div class="flex gap-4">
 		<button
@@ -47,4 +47,11 @@
 		>
 	</div>
 	<p>For detailed information see <a href="/how-to/notifications">notifications</a> page.</p>
+	<h3>Handling Data</h3>
+	<p>
+		In SvelteKit you should avoid using fetch to load data. Use the <code>load</code> function in
+		the <code>+page.server.ts</code> file.<br />
+		Also for creating data use form <code>actions</code>. For more details and a simple example see
+		the <a href="/how-to/handle-data">handle data</a> page.
+	</p>
 </article>
