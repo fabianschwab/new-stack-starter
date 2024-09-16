@@ -1,11 +1,24 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import MaterialSymbolsLightEditOutlineRounded from '~icons/material-symbols-light/edit-outline-rounded';
 	import MaterialSymbolsLightDeleteOutlineRounded from '~icons/material-symbols-light/delete-outline-rounded';
 	import { superForm } from 'sveltekit-superforms';
 
 	export let data: PageData;
-	const { form, errors, message, enhance } = superForm(data.createKudoForm);
+	// Because we have multiple forms, we need to rename the imports to differing them
+	// https://superforms.rocks/concepts/multiple-forms
+	const {
+		form: createKudoForm,
+		enhance: createKudoEnhance,
+		errors: createKudoErrors,
+		message: createKudoMessage
+	} = superForm(data.createKudoForm);
+
+	const {
+		form: deleteKudoForm,
+		enhance: deleteKudoEnhance,
+		errors: deleteKudoErrors,
+		message: deleteKudoMessage
+	} = superForm(data.deleteKudoForm);
 </script>
 
 <article class="prose max-w-3xl m-auto">
@@ -53,21 +66,21 @@
 		{data.kudos.length}
 		{data.kudos.length === 1 ? 'Kudo' : 'Kudos'} stored in the database.
 	</p>
-	<form method="POST" action="?/createKudo" class="max-w-md" use:enhance>
+	<form method="POST" action="?/createKudo" class="max-w-md" use:createKudoEnhance>
 		<label class="form-control">
 			<div class="label">
 				<span class="label-text">From</span>
 			</div>
 			<input
-				bind:value={$form.from}
+				bind:value={$createKudoForm.from}
 				type="text"
 				name="from"
 				placeholder="Your name"
 				class="input input-bordered"
 			/>
-			{#if $errors.from}
+			{#if $createKudoErrors.from}
 				<div class="label">
-					<span class="label-text-alt text-error">{$errors.from}</span>
+					<span class="label-text-alt text-error">{$createKudoErrors.from}</span>
 				</div>
 			{/if}
 		</label>
@@ -76,15 +89,15 @@
 				<span class="label-text">To</span>
 			</div>
 			<input
-				bind:value={$form.to}
+				bind:value={$createKudoForm.to}
 				type="text"
 				name="to"
 				placeholder="For whom"
 				class="input input-bordered"
 			/>
-			{#if $errors.to}
+			{#if $createKudoErrors.to}
 				<div class="label">
-					<span class="label-text-alt text-error">{$errors.to}</span>
+					<span class="label-text-alt text-error">{$createKudoErrors.to}</span>
 				</div>
 			{/if}
 		</label>
@@ -93,14 +106,14 @@
 				<span class="label-text">Message</span>
 			</div>
 			<textarea
-				bind:value={$form.message}
+				bind:value={$createKudoForm.message}
 				name="message"
 				placeholder="Your message ..."
 				class="textarea textarea-bordered"
 			/>
-			{#if $errors.message}
+			{#if $createKudoErrors.message}
 				<div class="label">
-					<span class="label-text-alt text-error">{$errors.message}</span>
+					<span class="label-text-alt text-error">{$createKudoErrors.message}</span>
 				</div>
 			{/if}
 		</label>
@@ -116,14 +129,12 @@
 			<div class="card-body">
 				<div class="flex justify-between">
 					<div class="card-title text-primary">{kudo.to}</div>
-					<div class="gap-1">
-						<button class="btn btn-square btn-ghost btn-sm"
-							><MaterialSymbolsLightEditOutlineRounded /></button
-						>
-						<button class="btn btn-square btn-ghost btn-sm"
+					<form method="POST" action="?/deleteKudo" use:deleteKudoEnhance>
+						<input type="hidden" name="kudoId" value={kudo.id} />
+						<button type="submit" class="btn btn-square btn-ghost btn-sm"
 							><MaterialSymbolsLightDeleteOutlineRounded /></button
 						>
-					</div>
+					</form>
 				</div>
 				<div class="text-bold">{kudo.message}</div>
 				<div class="card-actions justify-between items-baseline">
