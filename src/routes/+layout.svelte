@@ -4,6 +4,7 @@
 	import MaterialSymbolsLightMenuRounded from '~icons/material-symbols-light/menu-rounded';
 	import MaterialSymbolsLightNotificationsUnreadOutlineRounded from '~icons/material-symbols-light/notifications-unread-outline-rounded';
 	import MaterialSymbolsLightDataTableOutlineRounded from '~icons/material-symbols-light/data-table-outline-rounded';
+	import MaterialSymbolsLightShieldLockOutlineRounded from '~icons/material-symbols-light/shield-lock-outline-rounded';
 </script>
 
 <!-- Main Layout -->
@@ -44,6 +45,9 @@
 			</li>
 			<li>
 				<a href="/how-to/handle-data"><MaterialSymbolsLightDataTableOutlineRounded />Handle Data</a>
+			</li>
+			<li>
+				<a href="/authentication"><MaterialSymbolsLightShieldLockOutlineRounded />Authentication</a>
 			</li>
 			<!-- TODO sidebar component -->
 			<div class="flex justify-center grow items-end">
