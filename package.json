@@ -46,7 +46,7 @@
   },
   "type": "module",
   "dependencies": {
-    "better-sqlite3": "^11.3.0",
+    "@lucia-auth/adapter-drizzle": "^1.1.0",
     "drizzle-orm": "^0.33.0",
     "drizzle-zod": "^0.5.1",
     "svelte-persisted-store": "^0.11.0"
