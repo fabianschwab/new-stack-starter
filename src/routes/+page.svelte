@@ -12,8 +12,8 @@
 		<li>DaisyUI</li>
 		<li>Superforms</li>
 		<li>Zod Form Validation</li>
-		<li>Drizzle ORM <span class="text-xs font-bold">(upcoming)</span></li>
-		<li>Lucia Auth <span class="text-xs font-bold">(upcoming)</span></li>
+		<li>Drizzle ORM</li>
+		<li>Lucia Auth</li>
 	</ul>
 	<p>
 		I chose this stack because I find each technology intuitive and easy to use, allowing for a
