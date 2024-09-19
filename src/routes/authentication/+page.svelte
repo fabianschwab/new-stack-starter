@@ -21,5 +21,8 @@
 			<a href="/authentication/signout">Sign Out Page</a>, redirected to
 			<code>/authentication/signin</code> when no user is signed in.
 		</li>
+		<li>
+			OAuth via GitHub example and <a href="https://arctic.js.org/">Artic</a> as OAuth library.
+		</li>
 	</ul>
 </article>

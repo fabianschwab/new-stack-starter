@@ -6,11 +6,11 @@
 	const { form, errors, enhance, message } = superForm(data.form);
 </script>
 
-<article class="prose m-auto max-w-3xl">
+<article class="prose m-auto max-w-xs">
 	<h1>Sign In</h1>
 	<p>Please provide your username and password!</p>
 	<form class="" method="post" action="?/signin" use:enhance>
-		<label class="form-control w-full max-w-xs">
+		<label class="form-control w-full">
 			<div class="label">
 				<span class="label-text">Username</span>
 			</div>
@@ -20,7 +20,7 @@
 				name="username"
 				bind:value={$form.username}
 				placeholder="Username"
-				class="input input-bordered w-full max-w-xs"
+				class="input input-bordered w-full"
 			/>
 			{#if $errors.username}
 				<div class="label">
@@ -28,7 +28,7 @@
 				</div>
 			{/if}
 		</label>
-		<label class="form-control w-full max-w-xs">
+		<label class="form-control w-full">
 			<div class="label">
 				<span class="label-text">Password</span>
 			</div>
@@ -38,7 +38,7 @@
 				name="password"
 				bind:value={$form.password}
 				placeholder="Password"
-				class="input input-bordered w-full max-w-xs"
+				class="input input-bordered w-full"
 			/>
 			{#if $errors.password}
 				<div class="label">
@@ -47,9 +47,9 @@
 			{/if}
 		</label>
 		{#if $message}
-			<div class="text-error mt-2 text-center max-w-xs">{$message}</div>
+			<div class="text-error mt-2 text-center">{$message}</div>
 		{/if}
-		<div class="flex max-w-xs flex-col">
+		<div class="flex flex-col">
 			<button class="mt-4 btn btn-primary w-full" type="submit">Sign In</button>
 			<div class="divider">you don't have an account?</div>
 			<a href="/authentication/signup" class=" btn btn-outline w-full" type="submit">Sign Up</a>
