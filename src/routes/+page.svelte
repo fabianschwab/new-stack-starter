@@ -12,8 +12,8 @@
 		<li>DaisyUI</li>
 		<li>Superforms</li>
 		<li>Zod Form Validation</li>
-		<li>Drizzle ORM <span class="text-xs font-bold">(upcoming)</span></li>
-		<li>Lucia Auth <span class="text-xs font-bold">(upcoming)</span></li>
+		<li>Drizzle ORM</li>
+		<li>Lucia Auth</li>
 	</ul>
 	<p>
 		I chose this stack because I find each technology intuitive and easy to use, allowing for a
@@ -54,4 +54,11 @@
 		Also for creating data use form <code>actions</code>. For more details and a simple example see
 		the <a href="/how-to/handle-data">handle data</a> page.
 	</p>
+	<h3>Authentication</h3>
+	<p>This starter features <code>sign/in/out/up</code> pages with:</p>
+	<ol>
+		<li>Username and Password</li>
+		<li>OAuth with the help of Arctic</li>
+	</ol>
+	<p>Users are saved in the same database as by the central database adapter defined.</p>
 </article>

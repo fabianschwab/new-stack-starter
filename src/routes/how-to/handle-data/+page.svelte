@@ -66,7 +66,7 @@
 		{data.kudos.length}
 		{data.kudos.length === 1 ? 'Kudo' : 'Kudos'} stored in the database.
 	</p>
-	<form method="POST" action="?/createKudo" class="max-w-md" use:createKudoEnhance>
+	<form method="post" action="?/createKudo" class="max-w-md" use:createKudoEnhance>
 		<label class="form-control">
 			<div class="label">
 				<span class="label-text">From</span>
@@ -118,8 +118,8 @@
 			{/if}
 		</label>
 		<div class="mt-4 flex gap-4">
-			<button class="btn btn-primary" type="submit">Add new Kudo</button>
-			<button class="btn btn-secondary" type="reset">Reset form</button>
+			<button class="btn btn-primary" type="submit">Add Kudo</button>
+			<button class="btn btn-secondary" type="reset">Clear Form</button>
 		</div>
 	</form>
 </article>
